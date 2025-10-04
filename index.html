@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Information Assistant - ML Powered</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>Smart College Assistant</h1>
+                    <span class="ml-badge">ML Powered</span>
+                </div>
+                <div class="header-info">
+                    <span class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        Online
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Chat Interface -->
+        <main class="chat-container">
+            <div class="chat-header">
+                <h2>Welcome to Smart College Assistant</h2>
+                <p>AI-powered assistant for intelligent campus navigation, predictive analytics, and personalized recommendations</p>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            🤖 Hello! I'm your Smart College Assistant powered by Machine Learning. I can help you with:
+                            <ul>
+                                <li>📍 <strong>Smart Navigation:</strong> Find classrooms with optimal routes</li>
+                                <li>👨‍🏫 <strong>Faculty Matching:</strong> AI-recommended faculty based on your interests</li>
+                                <li>📅 <strong>Predictive Timetables:</strong> ML-generated optimal schedules</li>
+                                <li>📊 <strong>Analytics Dashboard:</strong> Campus insights and trends</li>
+                                <li>🎯 <strong>Personalized Recommendations:</strong> Courses and activities</li>
+                                <li>🔮 <strong>Predictive Features:</strong> Attendance, grades, and performance</li>
+                            </ul>
+                            <p>Try asking: "Recommend best CSE faculty for AI" or "Predict my attendance pattern"</p>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="quick-btn ml-feature" onclick="askQuestion('Smart route to EW201')">
+                    <i class="fas fa-route"></i>
+                    Smart Navigation
+                </button>
+                <button class="quick-btn ml-feature" onclick="askQuestion('Recommend best CSE faculty for AI')">
+                    <i class="fas fa-brain"></i>
+                    AI Recommendations
+                </button>
+                <button class="quick-btn ml-feature" onclick="askQuestion('Predict my attendance pattern')">
+                    <i class="fas fa-chart-line"></i>
+                    Predictions
+                </button>
+                <button class="quick-btn ml-feature" onclick="showAnalyticsDashboard()">
+                    <i class="fas fa-chart-bar"></i>
+                    Analytics
+                </button>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="userInput" placeholder="Ask me anything about smart navigation, AI recommendations, or predictions..." autocomplete="off">
+                    <button id="sendBtn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Analytics Dashboard Modal -->
+        <div id="analyticsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>📊 Smart Analytics Dashboard</h2>
+                    <span class="close" onclick="closeAnalyticsDashboard()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>🎯 Faculty Performance</h3>
+                            <div class="chart-container">
+                                <canvas id="facultyChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>📈 Attendance Trends</h3>
+                            <div class="chart-container">
+                                <canvas id="attendanceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>🏆 Department Rankings</h3>
+                            <div class="chart-container">
+                                <canvas id="departmentChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>🔮 Predictive Insights</h3>
+                            <div class="insights-list">
+                                <div class="insight-item">
+                                    <span class="insight-icon">📊</span>
+                                    <span>Peak classroom usage: 10:00-11:00 AM</span>
+                                </div>
+                                <div class="insight-item">
+                                    <span class="insight-icon">🎯</span>
+                                    <span>Best performing department: CSE</span>
+                                </div>
+                                <div class="insight-item">
+                                    <span class="insight-icon">📅</span>
+                                    <span>Optimal study time: 2:00-4:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
